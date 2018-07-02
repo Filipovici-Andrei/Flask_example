@@ -1,0 +1,26 @@
+<html>
+<head>
+    {% if title %}
+        <title>{{ title }} - Flask example</title>
+    {% else %}
+        <title>Welcome to Flask example</title>
+    {% endif %}
+</head>
+<body>
+    <div>Flask: <a href="/">Home</a>
+        <a href="/index">Index</a>
+        <a href="/login">Login</a>
+    </div>
+    <hr>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock content %}
+</body>
+</html>
